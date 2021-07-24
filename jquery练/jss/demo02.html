@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 导库 -->
+		<script src="./jquery-3.6.0.js"></script>
+		
+	</head>
+	<body>
+		<form action="" method="post">
+			请选择您的爱好！<br />
+			<input type="checkbox" name="roy" value="全选/全不选" />全选/全不选<br />
+			<input type="checkbox" name="roy" value="足球"/>足球
+			<input type="checkbox" name="roy" value="篮球"/>篮球
+			<input type="checkbox" name="roy" value="游泳"/>游泳
+			<input type="checkbox" name="roy" value="唱歌"/>唱歌
+		</form>
+		
+		<button onclick="qx()" value="全选">全选</button>
+		<button onclick="qbx()" value="全不选">全不选</button>
+		<button onclick="fx()" value="反选">反选</button>
+		<button onclick="submit" value="提交">提交</button>
+		
+		<script>
+			function qx(){
+				/* $(":checkbox[name='roy']"  指的是读取所有名字为roy的checkbox多选框
+					.attr("checked",true) 获取到的元素标签添加一个名字为checked的属性，值为true，就是选中的意思；
+					.attr("标签属性名","属性值")
+				*/
+				$("input[name='roy']").attr("checked",true);
+			}
+			function qbx(){
+				$("input[name='roy']").attr("checked",false);
+/* 	或			$(":checkbox[name='roy']").removeAttr("checked"); */
+			}
+			
+			function fx(){
+				/* 反选1
+				$("form :checkbox").each(function(){
+					if($(this).attr("checked")){
+						$(this).attr("checked",false);
+					}else{
+						$(this).attr("checked",true);
+					}
+				}); */
+				$("input[name='roy']").each(function(){
+					this.checked=!this.checked;
+				});
+				
+				
+			}
+		</script>
+	</body>
+</html>
